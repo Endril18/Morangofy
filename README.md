@@ -1,4 +1,4 @@
-# Gerenciador de Música :headphone:
+# Gerenciador de Música :headphones:
 
 E aí, beleza?! Bem-vindo ao Gerenciado de Música!! :grin:
 
