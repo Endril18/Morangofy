@@ -19,6 +19,8 @@ public interface MorangofyInterface {
      */
     void adicionarMusica(String nomeMusica, String nomeBanda, String nomeAlbum) throws MusicaJaExisteException;
 
+    void carregaNovasMusicas(List<MusicaMorangofy> novasMusicas) throws MusicaJaExisteException;
+
     boolean apagarMusica(String nomeMusica, String nomeBanda, String nomeAlbum);
 
     /**

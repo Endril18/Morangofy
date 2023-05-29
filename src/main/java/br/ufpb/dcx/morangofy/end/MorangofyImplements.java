@@ -30,6 +30,15 @@ public class MorangofyImplements implements MorangofyInterface{
         }
     }
 
+    public void carregaNovasMusicas(List<MusicaMorangofy> novasMusicas) throws MusicaJaExisteException {
+        for(MusicaMorangofy m : novasMusicas) {
+            if(this.existeMusica(m.getNomeMusica(), m.getNomeBanda(), m.getNomeAlbum())) {
+                throw new MusicaJaExisteException("A música "+ musicas.toString() +" já foi adicionada");
+            } else {
+                this.musicas.add(m);
+            }
+        }
+    }
 
     @Override
     public boolean apagarMusica(String nomeMusica, String nomeAutor, String nomeAlbum){

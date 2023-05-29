@@ -1,6 +1,7 @@
 package br.ufpb.dcx.morangofy.end;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +10,16 @@ public class ProgramaMorangofy {
 
         MorangofyInterface sistema = new MorangofyImplements();
         GuardarMusicas guardaMusicas = new GuardarMusicas();
+
+        try {
+            List<MusicaMorangofy> musicas = guardaMusicas.recuperaMusicas();
+            sistema.carregaNovasMusicas(musicas);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Nenhum dado encontrado no sistema!");
+        } catch (MusicaJaExisteException e) {
+            JOptionPane.showMessageDialog(null, "Nem todas as músicas puderam ser recuperadas. Verifique se alguma já existia");
+            e.printStackTrace();
+        }
 
         int escolha;
         do{
@@ -47,5 +58,16 @@ public class ProgramaMorangofy {
                     }
 
         } while(escolha != 5);
+
+        if (escolha == 5) {
+            try{
+                guardaMusicas.guardaMusicas(sistema.musicasAdicionadas());
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "Não foi possível gravar as músicas :(");
+                e.printStackTrace();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Essa opção não é válida.");
+        }
     }
 }
