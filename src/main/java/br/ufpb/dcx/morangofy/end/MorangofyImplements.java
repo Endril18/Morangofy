@@ -21,11 +21,11 @@ public class MorangofyImplements implements MorangofyInterface{
     }
 
     @Override
-    public void adicionarMusica(String nomeMusica, String nomeBanda, String nomeAlbum) throws MusicaJaExisteException{
+    public void adicionarMusica(String idMusicaString, String nomeMusica, String nomeBanda, String nomeAlbum) throws MusicaJaExisteException{
         if(this.existeMusica(nomeMusica, nomeBanda, nomeAlbum)) {
             throw new MusicaJaExisteException("Essa música já foi adicionada\n\n"+nomeMusica+"\n"+nomeBanda);
         } else {
-            MusicaMorangofy novaMusica = new MusicaMorangofy(nomeMusica, nomeBanda, nomeAlbum);
+            MusicaMorangofy novaMusica = new MusicaMorangofy(idMusicaString, nomeMusica, nomeBanda, nomeAlbum);
             this.musicas.add(novaMusica);
         }
     }
@@ -41,8 +41,12 @@ public class MorangofyImplements implements MorangofyInterface{
     }
 
     @Override
-    public boolean apagarMusica(String nomeMusica, String nomeAutor, String nomeAlbum){
-        return false;
+    public void apagarMusica(String id){
+        for (MusicaMorangofy m: musicas){
+            if(m.getIdMusicaString() == id) {
+                m.
+            }
+        }
     }
 
 

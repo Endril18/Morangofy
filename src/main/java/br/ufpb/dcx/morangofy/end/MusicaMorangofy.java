@@ -3,15 +3,17 @@ package br.ufpb.dcx.morangofy.end;
 import java.util.Objects;
 
 public class MusicaMorangofy {
+    private String idMusicaString;
     private String nomeMusica;
     private String nomeBanda;
     private String nomeAlbum;
 
     public MusicaMorangofy(){
-        this("", "", "");
+        this("", "", "", "");
     }
 
-    public MusicaMorangofy(String nomeMusica, String nomeBanda, String nomeAlbum){
+    public MusicaMorangofy(String idMusicaString, String nomeMusica, String nomeBanda, String nomeAlbum){
+        this.idMusicaString = idMusicaString;
         this.nomeMusica = nomeMusica;
         this.nomeBanda = nomeBanda;
         this.nomeAlbum = nomeAlbum;
@@ -49,4 +51,12 @@ public class MusicaMorangofy {
     public String getNomeAlbum(){ return this.nomeAlbum; }
 
     public void setNomeAlbum(String nome) { this.nomeAlbum = nome; }
+
+    public String getIdMusicaString() {
+        return this.idMusicaString;
+    }
+
+    public void setIdMusicaString(String id) {
+        this.idMusicaString = id;
+    }
 }
