@@ -10,7 +10,7 @@ public class GravarDados {
         List<String> stringLida = new ArrayList<>();
         try {
             leitor = new BufferedReader(new FileReader(nomeArquivo));
-            String texto = null;
+            String texto;
             do {
                 texto = leitor.readLine();
                 if(texto != null){

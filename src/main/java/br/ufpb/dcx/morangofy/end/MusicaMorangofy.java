@@ -3,17 +3,19 @@ package br.ufpb.dcx.morangofy.end;
 import java.util.Objects;
 
 public class MusicaMorangofy {
+    private String idMusicaString;
     private String nomeMusica;
-    private String nomeBanda;
+    private String nomeArtista;
     private String nomeAlbum;
 
     public MusicaMorangofy(){
-        this("", "", "");
+        this("", "", "", "");
     }
 
-    public MusicaMorangofy(String nomeMusica, String nomeBanda, String nomeAlbum){
+    public MusicaMorangofy(String idMusicaString, String nomeMusica, String nomeArtista, String nomeAlbum){
+        this.idMusicaString = idMusicaString;
         this.nomeMusica = nomeMusica;
-        this.nomeBanda = nomeBanda;
+        this.nomeArtista = nomeArtista;
         this.nomeAlbum = nomeAlbum;
     }
 
@@ -22,12 +24,12 @@ public class MusicaMorangofy {
         if(this == o) return true;
         if(o == null || getClass() != o.getClass()) return false;
         MusicaMorangofy that = (MusicaMorangofy) o;
-        return nomeMusica.equals(that.nomeMusica) && nomeBanda.equals(that.nomeBanda) && nomeAlbum.equals(that.nomeAlbum);
+        return nomeMusica.equals(that.nomeMusica) && nomeArtista.equals(that.nomeArtista) && nomeAlbum.equals(that.nomeAlbum);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nomeMusica, nomeBanda, nomeAlbum);
+        return Objects.hash(nomeMusica, nomeArtista, nomeAlbum);
     }
 
     public String getNomeMusica(){
@@ -38,15 +40,23 @@ public class MusicaMorangofy {
         this.nomeMusica = nome;
     }
 
-    public String getNomeBanda(){
-        return this.nomeBanda;
+    public String getNomeArtista(){
+        return this.nomeArtista;
     }
 
-    public void setNomeBanda(String nome){
-        this.nomeBanda = nome;
+    public void setNomeArtista(String nome){
+        this.nomeArtista = nome;
     }
 
     public String getNomeAlbum(){ return this.nomeAlbum; }
 
     public void setNomeAlbum(String nome) { this.nomeAlbum = nome; }
+
+    public String getIdMusicaString() {
+        return this.idMusicaString;
+    }
+
+    public void setIdMusicaString(String id) {
+        this.idMusicaString = id;
+    }
 }

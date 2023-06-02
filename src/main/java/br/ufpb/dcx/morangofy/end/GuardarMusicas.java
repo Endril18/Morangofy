@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GuardarMusicas {
-    private String arquivoDeMusicas = "Músicas.dat";
+    private String arquivoDeMusicas = "Músicas.txt";
     private GravarDados gravador;
 
     public GuardarMusicas() {
@@ -16,7 +16,7 @@ public class GuardarMusicas {
         List<String> musicaAGravar = new ArrayList<>();
 
         for(MusicaMorangofy m : musicas) {
-            String linha = m.getNomeMusica()+" "+m.getNomeBanda()+" "+m.getNomeAlbum();
+            String linha = m.getIdMusicaString() +"###"+ m.getNomeMusica()+"###"+m.getNomeArtista()+"###"+m.getNomeAlbum()+"\n";
             musicaAGravar.add(linha);
         }
         this.gravador.gravaTextoEmArquivo(musicaAGravar, this.arquivoDeMusicas);
@@ -28,8 +28,10 @@ public class GuardarMusicas {
 
 
         for(String s: dadosDasMusicas) {
-            String [] dados = s.split(" ");
-            MusicaMorangofy musicas = new MusicaMorangofy(dados[0], dados[1], dados[2]);
+            String [] dados = s.split("###");
+            System.out.println("+++>"+s);
+            System.out.println("+++>"+dados.length);
+            MusicaMorangofy musicas = new MusicaMorangofy(dados[0], dados[1], dados[2], dados[3]);
             MusicaLista.add(musicas);
         }
 
