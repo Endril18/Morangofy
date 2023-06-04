@@ -1,4 +1,4 @@
-package br.ufpb.dcx.morangofy.end;
+package br.ufpb.dcx.morangofy;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ public class GuardarMusicas {
         List<String> musicaAGravar = new ArrayList<>();
 
         for(MusicaMorangofy m : musicas) {
-            String linha = m.getIdMusicaString() +"###"+ m.getNomeMusica()+"###"+m.getNomeArtista()+"###"+m.getNomeAlbum()+"\n";
+            String linha = m.getIdMusicaString() +"###"+ m.getNomeMusica()+"###"+m.getNomeBanda()+"###"+m.getNomeArtista()+"###"+m.getNomeAlbum()+"\n";
             musicaAGravar.add(linha);
         }
         this.gravador.gravaTextoEmArquivo(musicaAGravar, this.arquivoDeMusicas);
@@ -31,7 +31,7 @@ public class GuardarMusicas {
             String [] dados = s.split("###");
             System.out.println("+++>"+s);
             System.out.println("+++>"+dados.length);
-            MusicaMorangofy musicas = new MusicaMorangofy(dados[0], dados[1], dados[2], dados[3]);
+            MusicaMorangofy musicas = new MusicaMorangofy(dados[0], dados[1], dados[2], dados[3], dados[4]);
             MusicaLista.add(musicas);
         }
 

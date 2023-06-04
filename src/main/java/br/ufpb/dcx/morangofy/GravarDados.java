@@ -1,4 +1,4 @@
-package br.ufpb.dcx.morangofy.end;
+package br.ufpb.dcx.morangofy;
 
 import java.io.*;
 import java.util.ArrayList;
