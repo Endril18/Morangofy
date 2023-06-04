@@ -47,14 +47,26 @@ public class ProgramaMorangofy {
                     } else {
                         JOptionPane.showMessageDialog(null, "Informe uma opção válida");
                     }
-                     String album = JOptionPane.showInputDialog("Qual é o nome do álbum?");
+
+                    String album = JOptionPane.showInputDialog("Qual é o nome do álbum?");
 
                     try {
-                        if (nome.isEmpty() || banda.isEmpty() && nomeArtista.isEmpty() && album.isEmpty()) {
-                            JOptionPane.showMessageDialog(null, "Preencha os campos corretamente");
-                        } else {
+                        if (!nome.isEmpty()) {
+
+                            if (banda == null || banda.isEmpty()) {
+                                banda = "S/D";
+                            }
+                            if (nomeArtista == null || nomeArtista.isEmpty()) {
+                                nomeArtista = "S/D";
+                            }
+                            if (album == null || album.isEmpty()) {
+                                album = "S/D";
+                            }
+
                             sistema.adicionarMusica(idMusicaString, nome, banda, nomeArtista, album);
                             JOptionPane.showMessageDialog(null, "Música adicionada com sucesso");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Preencha os campos corretamente");
                         }
                     } catch (MusicaJaExisteException m) {
                         JOptionPane.showMessageDialog(null, "Não foi possível adicionar essa música, veja se essa música já está na lista");
