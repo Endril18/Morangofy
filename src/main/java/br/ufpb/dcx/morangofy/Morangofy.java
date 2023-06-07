@@ -64,6 +64,11 @@ public class Morangofy implements SistemaMusicalInterface {
     public void apagarMusica(String id) {
         int idNum = Integer.parseInt(id);
         musicas.remove(idNum - 1);
+
+        for(int i = 0; i < musicas.size(); i++){
+            MusicaMorangofy musica = musicas.get(i);
+            musica.setIdMusicaString(String.valueOf(i + 1));
+        }
     }
 
     @Override

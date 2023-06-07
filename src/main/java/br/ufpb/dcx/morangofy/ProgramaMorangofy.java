@@ -21,14 +21,23 @@ public class ProgramaMorangofy {
             e.printStackTrace();
         }
 
+        String escolhaStr = "";
         int escolha = 0;
+        List<String> opcoes = new ArrayList<>();
+
+        for (int i = 1; i <= 6; i++) {
+            opcoes.add(String.valueOf(i));
+        }
 
 
         do {
             // Mostrando as opções
-            escolha = Integer.parseInt(JOptionPane.showInputDialog("Morangofy\n\n[1] Adicionar Música\n[2] Procurar Música\n[3] Todas as Músicas\n[4] Apagar Música\n[5] Salvar Dados\n[6] Fechar\n\n"));
-            List<MusicaMorangofy> musicas = sistema.musicasAdicionadas();
 
+            escolhaStr = (JOptionPane.showInputDialog("Morangofy\n\n[1] Adicionar Música\n[2] Procurar Música\n[3] Todas as Músicas\n[4] Apagar Música\n[5] Salvar Dados\n[6] Fechar\n\n"));
+            List<MusicaMorangofy> musicas = sistema.musicasAdicionadas();
+            if(escolhaStr!=null&&!escolhaStr.isEmpty()&&opcoes.contains(escolhaStr)){
+                escolha = Integer.parseInt(escolhaStr);
+            }
             switch (escolha) {
                 case 1:
                     // Determinando identificador de cada música e passando para String
@@ -36,7 +45,11 @@ public class ProgramaMorangofy {
                     String idMusicaString = String.valueOf(idMusica);
 
                     String nome = JOptionPane.showInputDialog("Qual é o nome da música?");
-                    int criacao = Integer.parseInt(JOptionPane.showInputDialog("[1] Banda\n[2] Artista"));
+                    String criacaoStr = (JOptionPane.showInputDialog("[1] Banda\n[2] Artista"));
+                    int criacao = 0;
+                    if(criacaoStr != null && !criacaoStr.isEmpty() && opcoes.contains(criacaoStr)){
+                        criacao = Integer.parseInt(criacaoStr);
+                    }
                     String banda = "";
                     String nomeArtista = "";
 
@@ -46,6 +59,7 @@ public class ProgramaMorangofy {
                         nomeArtista = JOptionPane.showInputDialog("Qual é o nome do(s) artista(s)?");
                     } else {
                         JOptionPane.showMessageDialog(null, "Informe uma opção válida");
+                        continue;
                     }
 
                     String album = JOptionPane.showInputDialog("Qual é o nome do álbum?");
@@ -77,7 +91,11 @@ public class ProgramaMorangofy {
                         if (sistema.verificaSeTemMusica()) {
                             JOptionPane.showMessageDialog(null, "Não há músicas adicionadas no sistema");
                         } else {
-                            int opcaoDePesquisa = Integer.parseInt(JOptionPane.showInputDialog("Deseja pesquisar pelo nome da música ou por artista?\n[1] Nome da Música\n[2] Nome do(s) Artista(s)"));
+                            String opcaoDePesquisaStr =(JOptionPane.showInputDialog("Deseja pesquisar pelo nome da música ou por artista?\n[1] Nome da Música\n[2] Nome do(s) Artista(s)"));
+                            int opcaoDePesquisa = 0;
+                            if(opcaoDePesquisaStr!=null&&!opcaoDePesquisaStr.isEmpty()&&opcoes.contains(opcaoDePesquisaStr)){
+                                opcaoDePesquisa = Integer.parseInt(opcaoDePesquisaStr);
+                            }
                             List<MusicaMorangofy> musicaPesquisada = new ArrayList<>();
                             String nomeDeMusicas = "nome";
                             String nomeDeArtistas = "artista";
