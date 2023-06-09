@@ -8,7 +8,7 @@ public interface SistemaMusicalInterface {
 
     void carregaNovasMusicas(List<MusicaMorangofy> novasMusicas) throws MusicaJaExisteException;
 
-    void editarMusica(String idMusicaString);
+    void editarMusica(String id, int mudanca, String novoValor) throws  MusicaNaoExisteException;
 
     List<MusicaMorangofy> pesquisaMusicas(String nome, String escolha);
 

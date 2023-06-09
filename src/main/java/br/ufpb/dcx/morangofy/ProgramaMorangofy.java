@@ -21,7 +21,7 @@ public class ProgramaMorangofy {
             e.printStackTrace();
         }
 
-        String escolhaStr = "";
+        String escolhaStr;
         int escolha = 0;
         List<String> opcoes = new ArrayList<>();
 
@@ -29,11 +29,16 @@ public class ProgramaMorangofy {
             opcoes.add(String.valueOf(i));
         }
 
-
         do {
             // Mostrando as opções
 
-            escolhaStr = (JOptionPane.showInputDialog("Morangofy\n\n[1] Adicionar Música\n[2] Procurar Música\n[3] Todas as Músicas\n[4] Apagar Música\n[5] Salvar Dados\n[6] Fechar\n\n"));
+            escolhaStr = (JOptionPane.showInputDialog("Morangofy" +
+                    "\n\n[1] Adicionar Música" +
+                    "\n[2] Procurar Música" +
+                    "\n[3] Todas as Músicas" +
+                    "\n[4] Apagar Música" +
+                    "\n[5] Editar Informações" +
+                    "\n[6] Fechar\n\n"));
             List<MusicaMorangofy> musicas = sistema.musicasAdicionadas();
             if(escolhaStr!=null&&!escolhaStr.isEmpty()&&opcoes.contains(escolhaStr)){
                 escolha = Integer.parseInt(escolhaStr);
@@ -89,10 +94,13 @@ public class ProgramaMorangofy {
                         }
                         break;
                         case 2:
+                            // Pesquisar Músicas
                             if (sistema.verificaSeTemMusica()) {
                                 JOptionPane.showMessageDialog(null, "Não há músicas adicionadas no sistema");
                             } else {
-                                String opcaoDePesquisaStr =(JOptionPane.showInputDialog("Deseja pesquisar pelo nome da música ou por artista?\n[1] Nome da Música\n[2] Nome do(s) Artista(s)"));
+                                String opcaoDePesquisaStr =(JOptionPane.showInputDialog("Deseja pesquisar pelo nome da música ou por artista?" +
+                                        "\n[1] Nome da Música" +
+                                        "\n[2] Nome do(s) Artista(s)"));
                                 int opcaoDePesquisa = 0;
                                 if(opcaoDePesquisaStr!=null&&!opcaoDePesquisaStr.isEmpty()&&opcoes.contains(opcaoDePesquisaStr)){
                                     opcaoDePesquisa = Integer.parseInt(opcaoDePesquisaStr);
@@ -113,17 +121,23 @@ public class ProgramaMorangofy {
                                 }
 
                                 if (musicaPesquisada.isEmpty()) {
-                                    JOptionPane.showMessageDialog(null, "Nenhuma música encontrada com o nome informado.");
+                                    JOptionPane.showMessageDialog(null, "Nenhuma música encontrada com o que foi informado.");
                                 } else {
                                     String musicaPesquisadaString = "Músicas: \n";
                                     for (MusicaMorangofy m : musicaPesquisada) {
-                                        musicaPesquisadaString += "ID: "+ m.getIdMusicaString() + "\n" + "Nome: " + m.getNomeMusica() + "\n" + "Banda: " + m.getNomeBanda() + "\n" + "Artista(s): " + m.getNomeArtista() + "\n" + "Álbum: " + m.getNomeAlbum() + "\n" + "----------------------\n";
+                                        musicaPesquisadaString += "ID: "+ m.getIdMusicaString()
+                                                + "\nNome: " + m.getNomeMusica()
+                                                + "\nBanda: " + m.getNomeBanda()
+                                                + "\nArtista(s): " + m.getNomeArtista()
+                                                + "\nÁlbum: " + m.getNomeAlbum()
+                                                + "\n----------------------\n";
                                     }
                                     JOptionPane.showMessageDialog(null, musicaPesquisadaString);
                                 }
                             }
                         break;
                         case 3:
+                            // Exibe todas as músicas do sistema
                             if (sistema.verificaSeTemMusica()) {
                                 JOptionPane.showMessageDialog(null, "Não há músicas adicionadas no sistema");
                             } else {
@@ -131,29 +145,56 @@ public class ProgramaMorangofy {
                                 String stringTodasMusicas = "";
                                 for (MusicaMorangofy m : musicas) {
 
-                                    stringTodasMusicas += m.getIdMusicaString() + "º\nNome : " + m.getNomeMusica() + "\nBanda: " + m.getNomeBanda() + "\nArtista(s): " + m.getNomeArtista() + "\nÁlbum: " + m.getNomeAlbum() + "\n ---------------------- \n";
+                                    stringTodasMusicas += "ID: " + m.getIdMusicaString() + "\nNome : " + m.getNomeMusica()
+                                            + "\nBanda: " + m.getNomeBanda()
+                                            + "\nArtista(s): " + m.getNomeArtista()
+                                            + "\nÁlbum: " + m.getNomeAlbum()
+                                            + "\n ---------------------- \n";
                                 }
                                 JOptionPane.showMessageDialog(null, "Músicas: \n" + stringTodasMusicas);
                             }
                             break;
                         case 4:
+                            // Apaga músicas no sistema
                             if (sistema.verificaSeTemMusica()) {
                                 JOptionPane.showMessageDialog(null, "Não há músicas adicionadas no sistema");
                             } else {
-
                                 String id = JOptionPane.showInputDialog("Qual é a numeração da música?");
-                                sistema.apagarMusica(id);
+                                JOptionPane.showMessageDialog(null, "Música apagada!");
                             }
-
+                            break;
                         case 5:
-                            //
+                            // Altera uma informação da música
+                            try{
+                                String id = JOptionPane.showInputDialog("Qual o ID da música que você deseja alterar?");
 
-                } throw new EscolhaInvalidaException("Escolha inválida");
+                                int mudanca = Integer.parseInt(JOptionPane.showInputDialog("O que você deseja alterar?"
+                                        +"\n[1] Nome da música"
+                                        +"\n[2] Nome do artista"
+                                        +"\n[3] Nome da banda"
+                                        +"\n[4] Nome do álbum"));
+
+                                String novoValor = JOptionPane.showInputDialog("Qual vai ser o novo nome?");
+
+                                sistema.editarMusica(id, mudanca, novoValor);
+                                JOptionPane.showMessageDialog(null, "Alteração realizada com sucesso!");
+
+                            }
+                            catch(MusicaNaoExisteException e){
+                                JOptionPane.showMessageDialog(null, "Música não encontrada");
+                                e.printStackTrace();
+                            }
+                            break;
+                }
+                if(escolha > 6 || escolha < 1) {
+                    throw new EscolhaInvalidaException("Escolha inválida");
+                }
             } catch (EscolhaInvalidaException e){
                 JOptionPane.showMessageDialog(null, "Escolha inválida! Digite outra opção");
                 e.printStackTrace();
             }
         } while (escolha != 6);
+
         try {
             guardaMusicas.guardaMusicas(sistema.musicasAdicionadas());
             JOptionPane.showMessageDialog(null, "Suas músicas foram salvas!");

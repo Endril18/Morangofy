@@ -30,7 +30,7 @@ public class MusicaMorangofy {
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode(){
         return Objects.hash(nomeMusica, nomeArtista, nomeBanda, nomeAlbum);
     }
 
@@ -50,7 +50,12 @@ public class MusicaMorangofy {
         this.nomeArtista = nome;
     }
 
-    public String getNomeBanda() {
+    /**
+
+     Obtém o nome da banda.
+     @return o nome da banda
+     */
+    public String getNomeBanda(){
         return nomeBanda;
     }
 
@@ -58,15 +63,39 @@ public class MusicaMorangofy {
         this.nomeBanda = nome;
     }
 
-    public String getNomeAlbum(){ return this.nomeAlbum; }
+    /**
 
-    public void setNomeAlbum(String nome) { this.nomeAlbum = nome; }
+     Obtém o nome do álbum.
+     @return o nome do álbum
+     */
+    public String getNomeAlbum(){
+        return this.nomeAlbum;
+    }
 
-    public String getIdMusicaString() {
+    /**
+
+     Define o nome do álbum.
+     @param nome o nome do álbum
+     */
+    public void setNomeAlbum(String nome) {
+        this.nomeAlbum = nome;
+    }
+
+    /**
+
+     Obtém o identificador da música.
+     @return o identificador da música
+     */
+    public String getIdMusicaString(){
         return this.idMusicaString;
     }
 
-    public void setIdMusicaString(String id) {
+    /**
+
+     Define o identificador da música.
+     @param id o identificador da música
+     */
+    public void setIdMusicaString(String id){
         this.idMusicaString = id;
     }
 }

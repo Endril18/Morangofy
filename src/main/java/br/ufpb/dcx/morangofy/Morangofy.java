@@ -85,10 +85,10 @@ public class Morangofy implements SistemaMusicalInterface {
     }
 
     @Override
-    public void editarMusica(String idMusicaString, int mudanca, String novoValor){
-        for (MusicaMorangofy m : this.musicas){
-            if (m.getIdMusicaString().equals(idMusicaString)){
-                switch(mudanca){
+    public void editarMusica(String idMusicaString, int mudanca, String novoValor) throws MusicaNaoExisteException {
+        for (MusicaMorangofy m : this.musicas) {
+            if (m.getIdMusicaString().equals(idMusicaString)) {
+                switch (mudanca) {
                     case 1: //muda o nome da música
                         m.setNomeMusica(novoValor);
                         break;
@@ -102,6 +102,9 @@ public class Morangofy implements SistemaMusicalInterface {
                         m.setNomeAlbum(novoValor);
                 }
             }
+        }
+        if(Integer.parseInt(idMusicaString) > this.musicas.size()){
+            throw new MusicaNaoExisteException("Essa ID não está no sistema\n" + idMusicaString);
         }
     }
 }
