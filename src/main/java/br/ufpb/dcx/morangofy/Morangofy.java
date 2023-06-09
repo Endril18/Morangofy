@@ -103,6 +103,7 @@ public class Morangofy implements SistemaMusicalInterface {
                 }
             }
         }
+        // Lança o Exception se não tiver ID correspondente
         if(Integer.parseInt(idMusicaString) > this.musicas.size()){
             throw new MusicaNaoExisteException("Essa ID não está no sistema\n" + idMusicaString);
         }
