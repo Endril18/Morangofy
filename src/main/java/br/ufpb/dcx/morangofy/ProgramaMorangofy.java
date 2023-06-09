@@ -117,7 +117,12 @@ public class ProgramaMorangofy {
                                 } else {
                                     String musicaPesquisadaString = "Músicas: \n";
                                     for (MusicaMorangofy m : musicaPesquisada) {
-                                        musicaPesquisadaString += "ID: "+ m.getIdMusicaString() + "\n" + "Nome: " + m.getNomeMusica() + "\n" + "Banda: " + m.getNomeBanda() + "\n" + "Artista(s): " + m.getNomeArtista() + "\n" + "Álbum: " + m.getNomeAlbum() + "\n" + "----------------------\n";
+                                        musicaPesquisadaString += "ID: "+ m.getIdMusicaString()
+                                                + "\nNome: " + m.getNomeMusica()
+                                                + "\nBanda: " + m.getNomeBanda()
+                                                + "\nArtista(s): " + m.getNomeArtista()
+                                                + "\nÁlbum: " + m.getNomeAlbum()
+                                                + "\n----------------------\n";
                                     }
                                     JOptionPane.showMessageDialog(null, musicaPesquisadaString);
                                 }
@@ -131,7 +136,11 @@ public class ProgramaMorangofy {
                                 String stringTodasMusicas = "";
                                 for (MusicaMorangofy m : musicas) {
 
-                                    stringTodasMusicas += m.getIdMusicaString() + "º\nNome : " + m.getNomeMusica() + "\nBanda: " + m.getNomeBanda() + "\nArtista(s): " + m.getNomeArtista() + "\nÁlbum: " + m.getNomeAlbum() + "\n ---------------------- \n";
+                                    stringTodasMusicas += m.getIdMusicaString() + "º\nNome : " + m.getNomeMusica()
+                                            + "\nBanda: " + m.getNomeBanda()
+                                            + "\nArtista(s): " + m.getNomeArtista()
+                                            + "\nÁlbum: " + m.getNomeAlbum()
+                                            + "\n ---------------------- \n";
                                 }
                                 JOptionPane.showMessageDialog(null, "Músicas: \n" + stringTodasMusicas);
                             }
@@ -146,7 +155,21 @@ public class ProgramaMorangofy {
                             }
 
                         case 5:
-                            //
+                            // Altera uma informação da música
+                            try{
+                                String id = (JOptionPane.showInputDialog("Qual música você deseja editar?"));
+                                int mudanca = Integer.parseInt(JOptionPane.showInputDialog("O que você deseja alterar?"
+                                        +"\n1. Nome da música"
+                                        +"\n2. Nome do artista"
+                                        +"\n3. Nome da banda"
+                                        +"\n4. Nome do álbum"));
+                                String novoValor = JOptionPane.showInputDialog("Qual vai ser o novo nome?");
+                                sistema.editarMusica(id, mudanca, novoValor);
+                                JOptionPane.showMessageDialog(null, "Alteração realizada com sucesso!");
+                                throw new MusicaNaoExisteException("Música não existe");
+                            }catch(MusicaNaoExisteException e){
+                                JOptionPane.showMessageDialog(null, "Música não encontrada");
+                        }
 
                 } throw new EscolhaInvalidaException("Escolha inválida");
             } catch (EscolhaInvalidaException e){
