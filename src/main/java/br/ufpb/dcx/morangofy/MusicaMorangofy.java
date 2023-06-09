@@ -10,7 +10,7 @@ public class MusicaMorangofy {
     private String nomeAlbum;
 
     public MusicaMorangofy(){
-        this("", "s/t", "s/t", "s/t", "s/t");
+        this("", "", "", "", "");
     }
 
     public MusicaMorangofy(String idMusicaString, String nomeMusica, String nomeBanda, String nomeArtista, String nomeAlbum){
