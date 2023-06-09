@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProgramaMorangofy {
-    public static void main(String [] args) {
+    public static void main(String [] args) throws EscolhaInvalidaException{
 
         SistemaMusicalInterface sistema = new Morangofy();
         GuardarMusicas guardaMusicas = new GuardarMusicas();
@@ -117,7 +117,7 @@ public class ProgramaMorangofy {
                                 } else {
                                     String musicaPesquisadaString = "Músicas: \n";
                                     for (MusicaMorangofy m : musicaPesquisada) {
-                                        musicaPesquisadaString += m.getIdMusicaString() + "º\n" + "Nome: " + m.getNomeMusica() + "\n" + "Banda: " + m.getNomeBanda() + "\n" + "Artista(s): " + m.getNomeArtista() + "\n" + "Álbum: " + m.getNomeAlbum() + "\n" + "----------------------\n";
+                                        musicaPesquisadaString += "ID: "+ m.getIdMusicaString() + "\n" + "Nome: " + m.getNomeMusica() + "\n" + "Banda: " + m.getNomeBanda() + "\n" + "Artista(s): " + m.getNomeArtista() + "\n" + "Álbum: " + m.getNomeAlbum() + "\n" + "----------------------\n";
                                     }
                                     JOptionPane.showMessageDialog(null, musicaPesquisadaString);
                                 }
@@ -146,20 +146,20 @@ public class ProgramaMorangofy {
                             }
 
                         case 5:
-                            if (sistema.verificaSeTemMusica()) {
-                                JOptionPane.showMessageDialog(null, "Não há músicas adicionadas no sistema");
-                            } else {
-                                try {
-                                    guardaMusicas.guardaMusicas(sistema.musicasAdicionadas());
-                                    JOptionPane.showMessageDialog(null, "Suas Músicas Foram Salvas!");
-                                } catch (IOException e) {
-                                    JOptionPane.showMessageDialog(null, "Não foi possível salvar as músicas :(");
-                                    e.printStackTrace();
-                                }
-                            }
+                            //
 
-                }
-            } catch (EscolhaInvalidaException)
+                } throw new EscolhaInvalidaException("Escolha inválida");
+            } catch (EscolhaInvalidaException e){
+                JOptionPane.showMessageDialog(null, "Escolha inválida! Digite outra opção");
+                e.printStackTrace();
+            }
         } while (escolha != 6);
+        try {
+            guardaMusicas.guardaMusicas(sistema.musicasAdicionadas());
+            JOptionPane.showMessageDialog(null, "Suas músicas foram salvas!");
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Não foi possível salvar as músicas :(");
+            e.printStackTrace();
+        }
     }
 }

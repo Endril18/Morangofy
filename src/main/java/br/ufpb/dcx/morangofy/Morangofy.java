@@ -83,4 +83,25 @@ public class Morangofy implements SistemaMusicalInterface {
     public List<MusicaMorangofy> musicasAdicionadas() {
         return this.musicas;
     }
+
+    @Override
+    public void editarMusica(String idMusicaString, int mudanca, String novoValor){
+        for (MusicaMorangofy m : this.musicas){
+            if (m.getIdMusicaString().equals(idMusicaString)){
+                switch(mudanca){
+                    case 1: //muda o nome da música
+                        m.setNomeMusica(novoValor);
+                        break;
+                    case 2: //muda o nome do artista
+                        m.setNomeArtista(novoValor);
+                        break;
+                    case 3: //muda o nome da banda
+                        m.setNomeBanda(novoValor);
+                        break;
+                    case 4: //muda o nome do álbum
+                        m.setNomeAlbum(novoValor);
+                }
+            }
+        }
+    }
 }
