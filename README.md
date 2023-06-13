@@ -9,7 +9,7 @@ Foi proposto que se construisse um sistema de informações simples (mini-projet
 
 # Aspectos de avaliação:
 
-- Ao menos uma das classes deve ter o método hashCode e equals, os quais podem ser gerados pelo Eclipse/VsCode/IntelliJ.
+- Ao menos uma das classes deve ter o método hashCode e equals, os quais podem ser gerados pelo Eclipse/VsCode/IntelliJ;
 - Deve haver ao menos uma interface para representar as operações principais do sistema e uma classe concreta que implementa a interface e guarda seus dados usando ArrayList ou LinkedList; 
 - Deve ser criada ao menos uma classe de Exceção (classe que herda de Exception), deve existir ao menos um método que lançe (throws) a exceção criada e algum trecho de código onde a exceção seja tratada (try/catch);
 - O sistema deve persistir dados em arquivo (a recuperação pode ser feita no início da execução e o salvamento apenas ao sair do sistema); 
