@@ -2,8 +2,8 @@
 
 E aí, beleza?! Bem-vindo ao Gerenciado de Música!! :grin:
 
-Esse sistema foi um projeto de finalização do curso de Linguagem de Programação, teve como objetivo consolidar a prática e experiência utilizando a
-linguagem de programação Java, fazendo uso dos conhecimentos adquiridos na disciplina.
+Esse programa foi um projeto de finalização do curso de Linguagem de Programação, teve como objetivo consolidar a prática e a experiência utilizando a
+linguagem de programação em Java, fazendo uso dos conhecimentos adquiridos na disciplina.
 
 Foi proposto que se construisse um sistema de informações simples (mini-projeto) com cadastro, pesquisa e remoção de dados.
 
@@ -16,15 +16,3 @@ Foi proposto que se construisse um sistema de informações simples (mini-projet
 - O sistema deve apresentar um menu para as operações do sistema representadas pela interface (ao menos 6 operações, cadastrar, pesquisar, salvar dados, sair...);
 - (Opcional) Alguma classe que é herdada por outras classes e que pode ser Classe Abstrata ou não;
 - (A interface do sistema pode ser texto ou gráfica (mesmo simples)).
-
-# Ideias de Mini-Projeto diferentes da minha:
-
-1. Sistema para controle de adoção de animais
-2. Sistema de comércio em geral e controle de produtos ou comércio eletrônico
-3. Sistema de cadastro de usuários e afazeres (TODOs) 
-4. Sistema de petshop
-5. Sistema de cadastro de usuários e equipamentos de assistência técnica 
-6. Sistema para gerenciar biblioteca
-7. Sistema para gerenciar animes
-8. Sistema de Banco/Caixa Eletrônico
-9. Sistema de controle de funcionários
