@@ -1,6 +1,6 @@
 # Morangofy :headphones:
 
-E aí, beleza?! Bem-vindo ao Gerenciado de Música!! :grin:
+E aí, beleza?! Bem-vindo ao Gerenciador de Música!! :grin:
 
 Esse programa foi um projeto de finalização do curso de Linguagem de Programação e, posteriormente, Programação Orientada a Objetos, teve como objetivo consolidar a prática e a experiência utilizando a
 linguagem de programação em Java, fazendo uso dos conhecimentos adquiridos na disciplina.
