@@ -1,11 +1,24 @@
-# Gerenciador de Música :headphones:
+# Morangofy :headphones:
 
 E aí, beleza?! Bem-vindo ao Gerenciado de Música!! :grin:
 
-Esse programa foi um projeto de finalização do curso de Linguagem de Programação e posteriormente, Programação Orientada a Objetos, teve como objetivo consolidar a prática e a experiência utilizando a
+Esse programa foi um projeto de finalização do curso de Linguagem de Programação e, posteriormente, Programação Orientada a Objetos, teve como objetivo consolidar a prática e a experiência utilizando a
 linguagem de programação em Java, fazendo uso dos conhecimentos adquiridos na disciplina.
 
-Foi proposto que se construisse um sistema de informações simples (mini-projeto) com cadastro, pesquisa e remoção de dados.
+Morangofy é um projeto de software que visa oferecer funcionalidades relacionadas à gestão e organização de músicas. O sistema permite aos usuários armazenar informações sobre suas músicas favoritas, facilitando a busca, atualização e exclusão de registros. O projeto é construído usando a linguagem de programação Java e tem uma interface de usuário simples e intuitiva, baseada em Java Swing.
+
+# Funcionalidades Principais:
+- Cadastro de Músicas: Os usuários podem adicionar novas músicas ao sistema, fornecendo detalhes como o nome da música, nome do artista, nome da banda e nome do álbum. Cada música é associada a um ID exclusivo no banco de dados.
+
+- Pesquisa de Músicas: Os usuários podem pesquisar músicas com base no nome da música ou no nome do artista. O sistema fornece resultados de pesquisa com informações detalhadas sobre as músicas correspondentes.
+
+- Atualização de Músicas: Os usuários podem atualizar informações de músicas existentes, como o nome da música, o nome do artista, o nome da banda e o nome do álbum.
+
+- Exclusão de Músicas: Os usuários têm a capacidade de excluir músicas do sistema. A exclusão de uma música remove permanentemente o registro do banco de dados.
+
+- Gestão de IDs de Músicas: O sistema renumera automaticamente os IDs de músicas sempre que uma música é adicionada ou excluída. Isso garante que os IDs sejam únicos e sequenciais.
+
+- Armazenamento em Banco de Dados: O sistema utiliza um banco de dados para persistir as informações das músicas, garantindo que os registros sejam mantidos.
 
 # Aspectos de avaliação:
 
