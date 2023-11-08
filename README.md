@@ -29,5 +29,6 @@ Morangofy é um projeto de software que visa oferecer funcionalidades relacionad
 - Código correspondente à interface com o usuário, que pode ser feita usando Swing, JavaFX, tecnologia Web (Angular/Servlets/JSP/React) ou para dispositivos móveis (ex: Android).
 - Arquivo melhorias.txt indicando pontos de melhoria de seu código que você identificou considerando "Bad Smells" (Mau cheiros) do livro sobre Refatoração da Biblioteca do Sigaa.
 
+#
 ![image](https://github.com/Endril18/Morangofy/assets/105693005/ba56d827-d7f2-4d6f-a03c-cc86f747417f)
 
