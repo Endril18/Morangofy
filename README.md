@@ -27,4 +27,7 @@ Morangofy é um projeto de software que visa oferecer funcionalidades relacionad
 - A pasta "src" com o código do seu projeto onde ao menos 8 das funcionalidades devem estar implementada por completo, devendo haver uma interface para representar o sistema com operações para representar estas funcionalidades (algo que lembre o padrão fachada/Façade que discutimos) e uma classe que implementa essa interface;
 - Ao menos uma classe de teste automático exercitando as principais funcionalidades de seu sistema (ela pode estar na pasta src ou em uma pasta "test" e deve testar cadastro, remoção e pesquisa); 
 - Código correspondente à interface com o usuário, que pode ser feita usando Swing, JavaFX, tecnologia Web (Angular/Servlets/JSP/React) ou para dispositivos móveis (ex: Android).
-- Arquivo melhorias.txt indicando pontos de melhoria de seu código que você identificou considerando "Bad Smells" (Mau cheiros) do livro sobre Refatoração da Biblioteca do Sigaa. 
+- Arquivo melhorias.txt indicando pontos de melhoria de seu código que você identificou considerando "Bad Smells" (Mau cheiros) do livro sobre Refatoração da Biblioteca do Sigaa.
+
+![image](https://github.com/Endril18/Morangofy/assets/105693005/ba56d827-d7f2-4d6f-a03c-cc86f747417f)
+
