@@ -10,7 +10,7 @@ public class FabricaDeConexoes {
 
     public static Connection getConnection() {
         try {
-            return DriverManager.getConnection("jdbc:postgresql://localhost/MusicasDB", "postgres", "root");
+            return DriverManager.getConnection("jdbc:postgresql://localhost/", "postgres", "");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
